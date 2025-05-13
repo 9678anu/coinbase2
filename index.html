@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coinbase Support Center – 24/7 Assistance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --coinbase-blue: #0052FF;
+            --coinbase-blue-light: #3385FF;
+            --coinbase-bg: #F9FAFB;
+            --coinbase-card: #FFFFFF;
+            --coinbase-text: #111827;
+            --coinbase-gray: #6B7280;
+            --coinbase-gradient: linear-gradient(120deg, #0052FF 0%, #3385FF 100%);
+            --danger-red: #B91C1C;
+            --shadow-soft: rgba(0, 82, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: var(--coinbase-bg);
+            color: var(--coinbase-text);
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        /* Floating Call Button with Ripple Animation */
+        .call-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--coinbase-blue);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 12px var(--shadow-soft);
+            z-index: 100;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .call-button::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--coinbase-blue-light);
+            opacity: 0.3;
+            animation: ripple 2s infinite ease-out;
+        }
+
+        .call-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px var(--shadow-soft);
+        }
+
+        @keyframes ripple {
+            0% { transform: scale(1); opacity: 0.3; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+
+        /* Header */
+        .header {
+            position: relative;
+            padding: 100px 0;
+            text-align: center;
+            background: var(--coinbase-gradient);
+            color: white;
+            margin-bottom: 80px;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -10%;
+            width: 120%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200"><path fill="%23FFFFFF" fill-opacity="0.1" d="M0,0 C400,100 800,50 1200,150 L1200,200 L0,200 Z"/></svg>');
+            background-size: cover;
+            transform: translateY(20px);
+            animation: parallax-wave 10s infinite linear;
+        }
+
+        @keyframes parallax-wave {
+            0% { transform: translateY(20px); }
+            50% { transform: translateY(0); }
+            100% { transform: translateY(20px); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 12px;
+            filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
+        }
+
+        .logo span {
+            font-size: 26px;
+            font-weight: 700;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .header h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* Content Sections */
+        .content-section {
+            background: var(--coinbase-card);
+            border-radius: 20px 20px 20px 0;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px var(--shadow-soft);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .content-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--coinbase-gradient);
+        }
+
+        .content-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px var(--shadow-soft);
+        }
+
+        .content-section h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--coinbase-blue);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .content-section h2 i {
+            color: var(--coinbase-blue-light);
+            font-size: 1.7rem;
+        }
+
+        .content-section h3 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--coinbase-text);
+            margin: 20px 0 10px;
+        }
+
+        .content-section p {
+            font-size: 1.05rem;
+            color: var(--coinbase-gray);
+            margin-bottom: 15px;
+        }
+
+        .content-section a {
+            color: var(--coinbase-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Normal Call Button */
+        .section-call-button {
+            display: inline-flex;
+            align-items: center;
+            background: var(--coinbase-blue);
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-top: 15px;
+            box-shadow: 0 2px 8px var(--shadow-soft);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .section-call-button:hover {
+            background: var(--coinbase-blue-light);
+            transform: translateY(-2px);
+        }
+
+        .section-call-button i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+
+        /* Disclaimer */
+        .disclaimer {
+            background: var(--coinbase-card);
+            border-radius: 20px 20px 20px 0;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 4px 15px var(--shadow-soft);
+            border-left: 4px solid var(--danger-red);
+        }
+
+        .disclaimer::after {
+            display: none;
+        }
+
+        .disclaimer h3 {
+            color: var(--danger-red);
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .disclaimer h3 i {
+            font-size: 1.3rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--coinbase-blue);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .header {
+                padding: 70px 0;
+            }
+
+            .header h1 {
+                font-size: 2.2rem;
+            }
+
+            .header p {
+                font-size: 1.1rem;
+            }
+
+            .content-section {
+                padding: 30px;
+                border-radius: 15px 15px 15px 0;
+            }
+
+            .content-section h2 {
+                font-size: 1.6rem;
+            }
+
+            .content-section h3 {
+                font-size: 1.3rem;
+            }
+
+            .section-call-button {
+                padding: 8px 18px;
+                font-size: 0.95rem;
+            }
+
+            .call-button {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .call-button::after {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo span {
+                font-size: 22px;
+            }
+
+            .logo img {
+                height: 40px;
+            }
+
+            .header h1 {
+                font-size: 1.9rem;
+            }
+
+            .content-section {
+                padding: 25px;
+            }
+
+            .content-section p {
+                font-size: 1rem;
+            }
+
+            .section-call-button {
+                font-size: 0.9rem;
+                padding: 7px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Call Button -->
+    <a href="tel:+1-844-513-3344" class="call-button">
+        <i class="fas fa-phone"></i>
+    </a>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://altcoinsbox.com/wp-content/uploads/2022/12/coinbase-logo.png" alt="Coinbase Logo">
+                    <span>Coinbase Support</span>
+                </div>
+                <h1>Coinbase Support Center – 24/7 Customer Assistance</h1>
+                <p>We're Always Here for You</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-section">
+            <h2><i class="fas fa-question-circle"></i> Round-the-Clock Support</h2>
+            <p>Have questions about your account, crypto transactions, withdrawals, or security? Our customer support team is available 24/7 to assist with all Coinbase-related inquiries. Whether you're just getting started with crypto or need help resolving an issue, we’re committed to providing fast, knowledgeable, and reliable assistance.</p>
+            <p>Visit our Help Center to access FAQs, detailed guides, and direct support options.</p>
+            <a href="tel:+1-844-513-3344" class="section-call-button"><i class="fas fa-phone"></i> Call Coinbase Support</a>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-lock"></i> Your Security Is Our Top Priority</h2>
+            <p>Trade and Invest with Confidence</p>
+            <p>Link your bank account or card once and let Coinbase handle secure crypto transactions for you. Our platform uses advanced security protocols to protect your personal and financial data—so your information stays private and encrypted at all times.</p>
+            <a href="tel:+1-844-513-3344" class="section-call-button"><i class="fas fa-phone"></i> Call Coinbase Support</a>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-exchange-alt"></i> Disputes & Account Issues Made Simple</h2>
+            <p>Need Help with a Transaction?</p>
+            <p>If you notice unauthorized activity or have a concern about a crypto transfer or withdrawal, the Coinbase Resolution Center is here to help. We guide you through every step to investigate and resolve the issue quickly and efficiently.</p>
+            <a href="tel:+1-844-513-3344" class="section-call-button"><i class="fas fa-phone"></i> Call Coinbase Support</a>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-search"></i> Fraud Prevention that Works 24/7</h2>
+            <p>Real-Time Threat Monitoring</p>
+            <p>Coinbase’s global anti-fraud systems work around the clock, analyzing account activity and transactions for signs of suspicious behavior. If we detect anything out of the ordinary, our team takes immediate action to secure your account.</p>
+            <a href="tel:+1-844-513-3344" class="section-call-button"><i class="fas fa-phone"></i> Call Coinbase Support</a>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-shield-alt"></i> Technology You Can Trust</h2>
+            <p>Security Features Designed to Protect You</p>
+            <p><strong>Behavioral Monitoring:</strong> Detects unusual login or transaction activity</p>
+            <p><strong>End-to-End Encryption:</strong> Keeps your data secure during every interaction</p>
+            <p><strong>TLS 1.2 Protocol:</strong> Ensures safe and encrypted access</p>
+            <p><strong>Biometric Login & 2FA:</strong> Adds extra layers of protection for every user</p>
+            <p>Coinbase is dedicated to delivering industry-leading security, so you can manage your digital assets with confidence—anytime, anywhere.</p>
+            <p>Why Millions Choose Coinbase</p>
+            <p>From individual investors to institutions, Coinbase is trusted globally for its secure, user-friendly, and transparent cryptocurrency services. Our state-of-the-art technology, customer-first philosophy, and international support team make us a top choice in digital finance.</p>
+            <a href="tel:+1-844-513-3344" class="section-call-button"><i class="fas fa-phone"></i> Call Coinbase Support</a>
+        </div>
+
+        <div class="content-section disclaimer">
+            <h3><i class="fas fa-exclamation-circle"></i> Notice from Shop New AVS</h3>
+            <p>Independent Store Acknowledgement</p>
+            <p>Shop New AVS is a third-party retailer offering genuine software and tech accessories. We accept Coinbase Commerce as a secure payment method but are not officially affiliated with Coinbase or the brands we feature.</p>
+            <p>All items sold through Shop New AVS come from verified distributors. For full details, please review our <a href="#terms">Terms & Conditions</a> and <a href="#privacy">Privacy Policy</a>.</p>
+            <p>For help with orders or payment confirmations, please visit our <a href="#help">Help Center</a> or contact customer support directly.</p>
+            <a href="tel:+1-844-513-3344" class="section-call-button"><i class="fas fa-phone"></i> Call Coinbase Support</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>© 2025 Coinbase. All rights reserved. Coinbase is a registered trademark of Coinbase, Inc. All other trademarks are the property of their respective owners.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
